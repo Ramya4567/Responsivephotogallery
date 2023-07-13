@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="./pg.css">
+<title>Photo Gallery</title>
+
+<body>
+    <div class="row">
+        <div class="column">
+            <img class="demo cursor" src="images/shitzu dog.png" style="width:100%" onclick="currentSlide(1)"
+                alt="Shihtzu">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/pug2.jpeg" style="width:100%" onclick="currentSlide(2)"
+                alt="Pug">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/poddle.jpeg" style="width:100%" onclick="currentSlide(3)"
+                alt="Poddle">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/Orange-Pomeranian-Standing-At-Park-1024x676.jpg" style="width:100%" onclick="currentSlide(4)"
+                alt="Orange-Pomeranian">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/english-cocker-spaniel.jpg" style="width: 50%" onclick="currentSlide(5)"
+                alt="cocker">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/husky2.webp" style="width:100%" onclick="currentSlide(6)"
+                alt="Husky">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/Golden retreiver.jpeg" style="width:100%" onclick="currentSlide(7)"
+                alt="Golden retreiver">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/bulldog.jpeg" style="width:100%" onclick="currentSlide(8)"
+                alt="Bulldog">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/yorkshire terrier.jpeg" style="width: 100%" onclick="currentSlide(9)"
+                alt="yorkshire">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/chowchow2.jpeg" style="width:100%" onclick="currentSlide(10)"
+                 alt="Chow chow">
+        </div>
+
+    </div>
+    <h2 style="text-align:center"> Photo Gallery </h2>
+    <div class="container">
+        <div class="mySlides">
+            <div class="numbertext">1 / 10</div>
+            <img src="images/shitzu dog.png" style="width:49.5%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 10</div>
+            <img src="images/pug2.jpeg" style="width:55.5%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 10</div>
+            <img src="images/poddle.jpeg" style="width:55.5%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 10</div>
+            <img src="images/Orange-Pomeranian-Standing-At-Park-1024x676.jpg" style="width:56%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">5 / 10</div>
+            <img src="images/english-cocker-spaniel.jpg" style="width: 53%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">6 / 10</div>
+            <img src="images/husky2.webp" style="width:52%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">7 / 10</div>
+            <img src="images/Golden retreiver.jpeg" style="width:55%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">8 / 10</div>
+            <img src="images/bulldog.jpeg" style="width:45.5%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">9 / 10</div>
+            <img src="images/yorkshire terrier.jpeg" style="width:40%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">10 / 10</div>
+            <img src="images/chowchow2.jpeg" style="width:50%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("demo");
+                let captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += "active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+        </script>
+
+</body>
+
+</html>
